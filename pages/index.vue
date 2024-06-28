@@ -4,9 +4,13 @@
 
 <script setup>
 
+const { $preview } = useNuxtApp()
+const version = $preview ? 'draft' : 'published'
+
+
 const story = await useAsyncStoryblok('home',
   {
-    version: 'draft',
+    version,
     resolve_links: 'url',
   },
   {
